@@ -1907,11 +1907,17 @@
       }
     },
     watch: {
-      'dataSource.length': function dataSourceLength() {
+      dataSource: function dataSource() {
         this.init();
       },
-      disabled: function disabled() {
+      disabled: function disabled(val) {
         this.sortable && this.sortable.setValue('disabled', val);
+      },
+      group: function group(val) {
+        this.sortable && this.sortable.setValue('group', val);
+      },
+      wrapClass: function wrapClass(val) {
+        this.sortable && this.sortable.setValue('wrapClass', val);
       }
     },
     activated: function activated() {
