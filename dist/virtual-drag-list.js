@@ -1296,7 +1296,7 @@
         n[t] = e, "group" === t && nt(n);
       },
       _onDrag: function (t) {
-        if (!this.options.disabled && this.options.group.pull && (!/mousedown|pointerdown/.test(t.type) || 0 === t.button)) {
+        if (!E && !this.options.disabled && this.options.group.pull && (!/mousedown|pointerdown/.test(t.type) || 0 === t.button)) {
           var e = I(t),
             n = e.touch,
             o = e.event,
@@ -1339,7 +1339,7 @@
           }, j.group = o, j.sortable = this, P.distance = {
             x: e.clientX - i.left,
             y: e.clientY - i.top
-          }, p(document, "touchend", this._onDrop), p(document, "touchcancel", this._onDrop), p(document, "mouseup", this._onDrop), this.options),
+          }, this.options),
           o = r.delay,
           e = r.delayOnTouchOnly;
         if (!o || e && !t || L || d) this._onStart(t);else {
@@ -1361,6 +1361,7 @@
       },
       _onStart: function (t) {
         N = this.el, p(document, t ? "touchmove" : "mousemove", this._nearestSortable);
+        p(document, "touchend", this._onDrop); p(document, "touchcancel", this._onDrop); p(document, "mouseup", this._onDrop);
         try {
           document.selection ? setTimeout(function () {
             document.selection.empty();
