@@ -1401,7 +1401,7 @@
           N !== A.sortable.el ? e !== N && function (t, e, n) {
             for (var o = t.lastElementChild; o && (o === e || "none" === v(o, "display") || n && !q(o, n));) o = o.previousElementSibling;
             return o;
-          }(N, P.node) ? x && this._onInsert(t, !1) : this._onInsert(t, !0) : x && this._onChange(t);
+          }(N, P.node) ? x && this._onInsert(t, !1) : this._onInsert(t, !0) : true;
         }
       },
       _autoScroll: function (t) {
